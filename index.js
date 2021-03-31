@@ -37,6 +37,7 @@ addTaskBtn.addEventListener('click', () => {
 // add new folder
 addFolderBtn.addEventListener('click', () => {
   const input = prompt('new folder name');
+  if (input == null) return;
   listFolder.push(input);
   newFolder(input);
   setFolder();
@@ -172,18 +173,18 @@ const createTask = () => {
 // edit tasks
 const editTask = (e) => {
   const index = e.target.id;
-  console.log(index);
   const card = myList[index];
   const updateBtn = document.createElement('input');
   formTitle.value = card.title;
   formNote.value = card.note;
   formDate.value = card.date;
   // button prop
-  updateBtn.setAttribute('type', 'button');
+  updateBtn.setAttribute('type', 'submit');
   updateBtn.id = 'updateBtn';
   updateBtn.value = 'update';
   // event listener
-  updateBtn.addEventListener('click', () => {
+  updateBtn.addEventListener('click', (event) => {
+    event.preventDefault();
     card.title = formTitle.value;
     card.note = formNote.value;
     card.date = formDate.value;
@@ -199,7 +200,6 @@ const editTask = (e) => {
 // delete item from array
 const deleteCard = (e) => {
   myList.splice(e.target.id, 1);
-  // form.classList.toggle('visible');
   update();
 };
 
@@ -221,8 +221,7 @@ const getFolder = () => {
   listFolder.push(...myFolder_array);
 };
 const restoreFolder = () => {
-  let i;
-  let l = listFolder.length;
+  let i; let l = listFolder.length;
   for (i = 0; i < l; i++) {
     newFolder(listFolder[i]);
   }
@@ -248,7 +247,7 @@ const switchList = () => {
   retrieveList(activeList);
   populateContent();
 };
-
+// initialize
 window.addEventListener('load', () => {
   getFolder();
   restoreFolder();
