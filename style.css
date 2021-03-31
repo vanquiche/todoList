@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-42 { font-size: 42px; }
+
+.logoTitle {
+  font-size: 2em;
+  margin: 15px;
+}
+.folderContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  margin: 0 20px 0 20px;
+  /* background-color: antiquewhite; */
+}
+#newTask {
+  color: white;
+}
+#newFolder {
+  order: 100;
+  cursor: pointer;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: lightblue;
+}
+.folderTab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 130px;
+  overflow: hidden;
+  background-color: rgb(141, 221, 141);
+  padding: 0 15px 0 15px;
+  vertical-align: baseline;
+  margin-right: 3px;
+  border-radius: 10px 10px 0 0;
+  cursor: default;
+}
+.tabActive {
+  background-color: lightgreen;
+  color: white;
+  /* border-top: 5px solid tomato; */
+}
+.folderTab {
+  position: relative;
+}
+.closeout {
+  position: absolute;
+  display: inline-block;
+  right: 7px;
+  top: 4px;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+}
+.closeout:hover {
+  background-color: rgba(255, 255, 255, 0.342);
+  border-radius: 3px;
+}
+.cardContainer {
+  background-color: lightgreen;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 0 10px 0 0;
+  padding-bottom: 15px;
+}
+.formWrapper {
+  background-color: antiquewhite;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 25px 35px 40% 35px 30px;
+  width: 400px;
+  height: 340px;
+  padding: 15px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  visibility: hidden;
+}
+.span2 {
+  grid-column: 1 / 3;
+}
+.textarea {
+  resize: none;
+  font-size: 1.2em;
+  padding: 5px;
+}
+.date {
+  text-align: center;
+}
+.card {
+  position: relative;
+  padding: 3px 50px 25px 50px;
+  overflow: hidden;
+  height: 35px;
+  margin: 5px 20px 0 20px;
+  word-wrap: break-word;
+  border-radius: 5px;
+}
+.card:nth-child(odd) {
+  background-color: rgb(107, 193, 221);
+}
+.cardTitle {
+  margin-top: 2px;
+  font-size: 1.1em;
+}
+.cardText {
+  margin-top: 10px;
+}
+.collapsible {
+  display: inline-block;
+  position: absolute;
+  top: 6px;
+  bottom: 0;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  /* vertical-align: top; */
+}
+.collapsible::after {
+  content: '\002B';
+}
+.active::after {
+  content: '\2212';
+}
+.expand {
+  overflow: visible;
+  min-height: 120px;
+  height: auto;
+  padding-bottom: 10px;
+  transition: height 0.1s ease;
+}
+.checkbox {
+  display: inline-block;
+  position: absolute;
+  margin-top: 5px;
+  left: 10px;
+}
+.btn {
+  text-align: center;
+  color: grey;
+  background: none;
+  border: none;
+  margin: 10px 0 0 0;
+}
+
+.btn:hover {
+  color: tomato;
+}
+.strikeout {
+  text-decoration: line-through;
+  color: grey;
+}
+.visible {
+  visibility: visible;
+}
+.newTaskBtn {
+  margin: 5px 0 0 32px;
+  cursor: pointer;
+}
