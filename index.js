@@ -9,6 +9,11 @@ const addFolderBtn = document.getElementById('newFolder');
 const main = document.getElementById('mainFolder');
 const addTaskBtn = document.getElementById('newTask');
 // form variables
+const folderForm = document.getElementById('newFolderForm');
+const createFolderBtn = document.getElementById('createFolder');
+const cancelFolderBtn = document.getElementById('cancelFolder');
+const folderName = document.getElementById('folderName');
+const folderDate = document.getElementById('folderDate');
 const form = document.getElementById('form');
 const formTitle = document.getElementById('formTitle');
 const formNote = document.getElementById('formNote');
@@ -20,9 +25,9 @@ addTaskBtn.addEventListener('click', () => {
   form.classList.toggle('visible');
   const submitForm = document.createElement('input');
   submitForm.setAttribute('type', 'submit');
-  submitForm.className = '';
+  submitForm.className = 'formBtn';
   submitForm.id = 'submitBtn';
-  submitForm.value = 'Submit';
+  submitForm.value = 'Save';
   submitForm.addEventListener('click', (event) => {
     if (formTitle.value == '') return;
     event.preventDefault();
@@ -36,13 +41,23 @@ addTaskBtn.addEventListener('click', () => {
 });
 // add new folder
 addFolderBtn.addEventListener('click', () => {
-  const input = prompt('new folder name');
-  if (input == null) return;
-  listFolder.push(input);
-  newFolder(input);
-  setFolder();
+  newFolderForm.classList.toggle('visible');
 });
-
+createFolderBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  newFolderForm.classList.toggle('visible');
+  listFolder.push({
+    name: folderName.value,
+    date: folderDate.value,
+  });
+  newFolder(folderName.value, folderDate.value);
+  setFolder();
+  folderForm.reset();
+});
+cancelFolderBtn.addEventListener('click', () => {
+  folderForm.reset();
+  newFolderForm.classList.toggle('visible');
+})
 // form buttons
 cancelForm.addEventListener('click', () => {
   const submitBtn = document.getElementById('submitBtn');
@@ -54,11 +69,12 @@ cancelForm.addEventListener('click', () => {
 });
 
 // new task factory function
-const newTask = (title, note, date) => {
+const newTask = (title, note, complete) => {
+  complete = false;
   return {
     title,
     note,
-    date,
+    complete,
   };
 };
 // main folder tab
@@ -77,28 +93,35 @@ const removeFolder = (e) => {
   setFolder();
 };
 // add new folder
-const newFolder = (title) => {
+const newFolder = (title, date) => {
   const newTab = document.createElement('div');
   const remove = document.createElement('p');
+  const dueDate = document.createElement('p');
   remove.innerHTML = 'clear';
   remove.className = 'closeout';
   remove.classList.add('material-icons');
   remove.classList.add('md-18');
   remove.id = title;
   remove.addEventListener('click', removeFolder);
+  newTab.setAttribute('data-date', `${date}`);
   newTab.id = title + 'folder';
-  newTab.innerText = title;
+  newTab.innerText = `${newTab.getAttribute('data-date')}`;
   newTab.className = 'folderTab';
+  newTab.classList.add('tabFont');
   newTab.addEventListener('click', (event) => {
     newTab.classList.toggle('tabActive');
     activeList = title;
     controlTab(event);
     switchList();
   });
+  dueDate.className = 'dueDate';
+  dueDate.innertText = date;
   // appended
   folderContainer.appendChild(newTab);
   newTab.appendChild(remove);
+  listContainer.appendChild(dueDate);
 };
+// console.log(newTab.dataset)
 // add class to active tabs
 const controlTab = (event) => {
   const tabs = document.querySelectorAll('.folderTab');
@@ -124,9 +147,9 @@ const populateContent = () => {
     title.innerText = myList[i].title;
     // paragraph prop
     note.className = 'cardText';
-    date.className = 'cardText';
-    note.innerText = 'note: ' + myList[i].note;
-    date.innerText = 'due date: ' + myList[i].date;
+    // date.className = 'cardText';
+    note.innerText = 'Note: \n' + myList[i].note;
+    // date.innerText = 'due date: ' + myList[i].date;
     // expand button prop
     expandCard.className = 'collapsible';
     expandCard.addEventListener('click', () => {
@@ -165,7 +188,7 @@ const populateContent = () => {
 
 // add new task function
 const createTask = () => {
-  const list = newTask(formTitle.value, formNote.value, formDate.value);
+  const list = newTask(formTitle.value, formNote.value);
   myList.unshift(list);
   populateContent();
 };
@@ -177,9 +200,10 @@ const editTask = (e) => {
   const updateBtn = document.createElement('input');
   formTitle.value = card.title;
   formNote.value = card.note;
-  formDate.value = card.date;
+  // formDate.value = card.date;
   // button prop
   updateBtn.setAttribute('type', 'submit');
+  updateBtn.className = 'formBtn';
   updateBtn.id = 'updateBtn';
   updateBtn.value = 'update';
   // event listener
@@ -187,7 +211,7 @@ const editTask = (e) => {
     event.preventDefault();
     card.title = formTitle.value;
     card.note = formNote.value;
-    card.date = formDate.value;
+    // card.date = formDate.value;
     update();
     updateBtn.remove();
     form.classList.toggle('visible');
@@ -223,7 +247,7 @@ const getFolder = () => {
 const restoreFolder = () => {
   let i; let l = listFolder.length;
   for (i = 0; i < l; i++) {
-    newFolder(listFolder[i]);
+    newFolder(listFolder[i].name, listFolder[i].date);
   }
 };
 // lists

@@ -16,19 +16,26 @@
 <body>
   <h3 class='logoTitle'>Today list</h3>
   <div id='folderContainer' class='folderContainer'>
-    <div id='mainFolder' class='folderTab'>main</div>
-    <div id='newFolder' class='material-icons md-42'>create_new_folder</div>
+    <div id='mainFolder' class='folderTab'>today</div>
+    <div id='newFolder' class='material-icons md-42'>create_new_folder
+    </div>
   </div>
   <div id='content' class='cardContainer'>
     <div type='button' id='newTask' class='material-icons md-42 newTaskBtn'>playlist_add_check</div>
   </div>
   <!-- new task form -->
+  <form id='newFolderForm' class='form'>
+    <input type='text' id='folderName' class='span2' placeholder='folder name'></input>
+    <input type='date' id='folderDate' class='date span2' required></input>
+    <input type='button' id='cancelFolder' value='Cancel'></input>
+    <input type='submit' id='createFolder' value='Create'></input>
+  </form>
   <form id='form' class='formWrapper'>
     <h3>New Task</h3>
     <input type='text' id='formTitle' class='inputText span2' placeholder='Task' maxlength='30' required></input>
-    <textarea id='formNote' class='textarea span2'placeholder='Note' rows='5' columns='50'></textarea>
-    <input type='date' id='formDate' class='date span2' placeholder='Due Date'></input>
-    <input id='cancelForm' type='button' value='cancel'></input>
+    <textarea id='formNote' class='textarea span2' placeholder='Note' rows='5' columns='50'></textarea>
+
+    <input id='cancelForm' class='formBtn' type='button' value='Cancel'></input>
 
   </form>
   <script src='index.js'></script>
