@@ -1,3 +1,5 @@
+
+
 // data cotainers
 let myList = [];
 let listFolder = [];
@@ -8,6 +10,7 @@ const listContainer = document.getElementById('content');
 const addFolderBtn = document.getElementById('newFolder');
 const main = document.getElementById('mainFolder');
 const addTaskBtn = document.getElementById('newTask');
+const dateText = document.getElementById('contentDate');
 // form variables
 const folderForm = document.getElementById('newFolderForm');
 const createFolderBtn = document.getElementById('createFolder');
@@ -104,8 +107,10 @@ const newFolder = (title, date) => {
   remove.id = title;
   remove.addEventListener('click', removeFolder);
   newTab.setAttribute('data-date', `${date}`);
+  const duedate = newTab.getAttribute('data-date');
+
   newTab.id = title + 'folder';
-  newTab.innerText = `${newTab.getAttribute('data-date')}`;
+  newTab.innerText = title;
   newTab.className = 'folderTab';
   newTab.classList.add('tabFont');
   newTab.addEventListener('click', (event) => {
@@ -148,7 +153,7 @@ const populateContent = () => {
     // paragraph prop
     note.className = 'cardText';
     // date.className = 'cardText';
-    note.innerText = 'Note: \n' + myList[i].note;
+    note.innerText = myList[i].note;
     // date.innerText = 'due date: ' + myList[i].date;
     // expand button prop
     expandCard.className = 'collapsible';

@@ -2,51 +2,67 @@
   box-sizing: border-box;
 }
 body {
-  /* background-color: grey; */
+  background-color: #f5edeb;
   overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-42 { font-size: 42px; }
-
+#logoContainer {
+  display: flex;
+  max-width: 700px;
+  justify-content: start;
+  /* background-color: lightgreen; */
+  margin: auto;
+}
 .logoTitle {
   display: block;
   font-size: 2em;
   margin: 15px;
+  font-family: Raleway;
 }
 .folderContainer {
   display: flex;
-  /* flex-wrap: wrap; */
   flex-direction: row;
-  /* width: 90%; */
-
   max-width: 700px;
   height: auto;
   margin: 0 auto 0 auto;
-  /* background-color: antiquewhite; */
+}
+.formTitle {
+  font-family: Raleway;
 }
 .form {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   width: 400px;
   padding: 10px;
-  background-color: yellowgreen;
+  background-color: #9DD9D2;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
   visibility: hidden;
+  border-radius: 5px;
+}
+.folderName {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background: #eaf7f1;
+  font-size: 0.8em;
 }
 .dueDate {
   position: fixed;
 }
 #newTask {
   color: white;
-  transition: 0.5s ease;
 }
 #newTask:hover {
+  transition: 0.5s ease;
   transform: scale(115%);
 }
 #newFolder {
@@ -56,11 +72,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: lightblue;
-  transition: 0.5s ease;
+  color: #84CDC4;
   position: relative;
 }
 #newFolder:hover {
+  transition: 0.5s ease;
   transform: scale(115%);
 }
 .folderTab {
@@ -70,21 +86,23 @@ body {
   height: 45px;
   width: 130px;
   overflow: hidden;
-  background-color: rgb(141, 221, 141);
+  background-color: #84CDC4;
   padding: 0 15px 8px 15px;
   vertical-align: baseline;
   margin-right: 3px;
   border-radius: 10px 10px 0 0;
   cursor: default;
+  word-wrap: none;
+  color: rgb(75, 75, 75);
+  font-family: Raleway;
+  font-weight: bold;
 }
 .tabActive {
-  background-color: lightgreen;
+  background-color: #9DD9D2;
   color: white;
-  /*
-  border-top: 5px solid tomato; */
 }
 .tabFont {
-  font-size: .7em;
+  font-size: 1.1em;
 }
 .folderTab {
   position: relative;
@@ -104,14 +122,14 @@ body {
 }
 .cardContainer {
   max-width: 700px;
-  background-color: lightgreen;
+  background-color: #9DD9D2;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 0 10px 0 0;
+  border-radius: 0 10px 10px 10px;
   padding-bottom: 15px;
 }
 .formWrapper {
-  background-color: lightgreen;
+  background-color: #9DD9D2;
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(2, 1fr);
@@ -133,64 +151,68 @@ body {
   grid-column: 1 / 3;
 }
 .inputText {
-  background: none;
-  border: 1px solid black;
+  background: #eaf7f1;
+  border: none;
   border-radius: 5px;
   padding: 5px;
   outline: none;
-  /* transition: 0.5s ease; */
+  font-size: 0.8em;
 }
-.inputText:focus {
-  border: 1px solid tomato;
-}
+
 .textarea {
   resize: none;
-  font-size: 1.2em;
   padding: 5px;
-  background: none;
-  /* border: none; */
-  /* box-shadow: none; */
-  border: 1px solid black;
+  background: #eaf7f1;
+  border: none;
   border-radius: 5px;
   outline: none;
-  /* transition: 0.5s ease; */
+  font-size: 0.8em;
+  font-family: 'Open Sans', sans-serif;
 }
-.textarea:focus {
-  border: 1px solid tomato;
-}
+
 .date {
   text-align: center;
+  border: none;
+  border-radius: 5px;
+  background: #eaf7f1;
+  /* height: 20px */
 }
 .formBtn {
-  background: none;
-  border: 1px solid black;
+  background: #f3ebea;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
-  /* transition: 0.5s ease; */
+  color: darkslategrey;
 }
-.formBtn:hover {
-  border: 1px solid tomato;
-}
+
 .card {
   position: relative;
   padding: 3px 50px 25px 50px;
   overflow: hidden;
   height: 35px;
-  margin: 5px 20px 0 20px;
+  margin: 0 20px 0 20px;
   word-wrap: break-word;
-  border-radius: 5px;
+  border-radius: 6px;
   transition: max-height 0.5s ease;
+  color: darkslategrey;
+  cursor: default;
 }
 .card:nth-child(odd) {
-  background-color: rgb(107, 193, 221);
+  background-color: #ECE4B7;
+  /* background-color: rgb(107, 193, 221); */
 }
-
+.card:nth-child(even){
+  background-color: rgb(181, 225, 240);
+  /* background-color: #FBD1A2; */
+}
 .cardTitle {
-  margin-top: 2px;
-  font-size: 1.1em;
+  margin-top: 3px;
+  font-size: 1em;
+  /* font-family: sans-serif; */
 }
 .cardText {
   margin-top: 10px;
+  font-size: .9em;
 }
 .collapsible {
   display: inline-block;
@@ -202,6 +224,7 @@ body {
   border: none;
   cursor: pointer;
   margin: 0;
+  color: darkslategrey;
 }
 .collapsible::after {
   content: '\002B';
@@ -220,17 +243,22 @@ body {
   position: absolute;
   margin-top: 5px;
   left: 10px;
+  cursor: pointer;
 }
 .btn {
   text-align: center;
   color: grey;
   background: none;
   border: none;
-  margin: 10px 0 0 0;
+  bottom: 0;
+  margin: 0px 0 0 0;
+  padding-top: 20px;
+  padding-bottom: 0;
+  cursor: pointer;
 }
 
 .btn:hover {
-  color: rgb(206, 93, 65);
+  color: #EF946C;
 }
 .strikeout {
   text-decoration: line-through;
