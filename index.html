@@ -18,21 +18,21 @@
 
 <body>
   <div id='logoContainer'>
-  <h3 class='logoTitle'>Today list</h3>
+    <h3 class='logoTitle'>Today list</h3>
   </div>
   <div id='folderContainer' class='folderContainer'>
-    <div id='mainFolder' class='folderTab tabFont'>main</div>
+    <div id='mainFolder' class='folderTab tabFont align'>today</div>
     <div id='newFolder' class='material-icons md-42'>create_new_folder
     </div>
   </div>
   <div id='content' class='cardContainer'>
     <div type='button' id='newTask' class='material-icons md-42 newTaskBtn'>playlist_add_check</div>
-    <p id='contentDate' class=''></p>
   </div>
   <!-- new folder form -->
   <form id='newFolderForm' class='form'>
     <h3 class='formTitle'>New Folder</h3>
-    <input type='text' id='folderName' class='folderName span2' placeholder='Folder Name' maxlength='28' required></input>
+    <input type='text' id='folderName' class='folderName span2' placeholder='Folder Name' maxlength='28'
+      required></input>
     <input type='date' id='folderDate' class='date span2' required></input>
     <input type='button' id='cancelFolder' class='formBtn' value='Cancel'></input>
     <input type='submit' id='createFolder' class='formBtn' value='Create'></input>
@@ -43,8 +43,8 @@
     <input type='text' id='formTitle' class='inputText span2' placeholder='Task' maxlength='30' required></input>
     <textarea id='formNote' class='textarea span2' placeholder='Note' rows='5' columns='50'></textarea>
     <input id='cancelForm' class='formBtn' type='button' value='Cancel'></input>
-
   </form>
+  <footer id='footer'><i>design</i> | {code} - vanquiche</footer>
   <script src='index.js' type='module'></script>
 </body>
 

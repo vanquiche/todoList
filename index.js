@@ -1,5 +1,4 @@
 
-
 // data cotainers
 let myList = [];
 let listFolder = [];
@@ -22,7 +21,8 @@ const formTitle = document.getElementById('formTitle');
 const formNote = document.getElementById('formNote');
 const formDate = document.getElementById('formDate');
 const cancelForm = document.getElementById('cancelForm');
-// event listners
+
+// EVENT LISTENERS
 // add new task
 addTaskBtn.addEventListener('click', () => {
   form.classList.toggle('visible');
@@ -70,7 +70,14 @@ cancelForm.addEventListener('click', () => {
   form.classList.toggle('visible');
   form.reset();
 });
+// main folder tab
+main.addEventListener('click', (e) => {
+  activeList = 'main';
+  controlTab(e);
+  switchList();
+});
 
+// FUNCTIONS
 // new task factory function
 const newTask = (title, note, complete) => {
   complete = false;
@@ -80,12 +87,6 @@ const newTask = (title, note, complete) => {
     complete,
   };
 };
-// main folder tab
-main.addEventListener('click', (e) => {
-  activeList = 'main';
-  controlTab(e);
-  switchList();
-});
 
 const removeFolder = (e) => {
   const index = listFolder.indexOf(e.target.id);
@@ -108,7 +109,6 @@ const newFolder = (title, date) => {
   remove.addEventListener('click', removeFolder);
   newTab.setAttribute('data-date', `${date}`);
   const duedate = newTab.getAttribute('data-date');
-
   newTab.id = title + 'folder';
   newTab.innerText = title;
   newTab.className = 'folderTab';
@@ -126,7 +126,6 @@ const newFolder = (title, date) => {
   newTab.appendChild(remove);
   listContainer.appendChild(dueDate);
 };
-// console.log(newTab.dataset)
 // add class to active tabs
 const controlTab = (event) => {
   const tabs = document.querySelectorAll('.folderTab');
@@ -135,8 +134,7 @@ const controlTab = (event) => {
 };
 
 const populateContent = () => {
-  let i;
-  let l = myList.length;
+  let i; let l = myList.length;
   for (i = 0; i < l; i++) {
     const taskCard = document.createElement('div');
     const title = document.createElement('p');
@@ -152,8 +150,8 @@ const populateContent = () => {
     title.innerText = myList[i].title;
     // paragraph prop
     note.className = 'cardText';
-    // date.className = 'cardText';
     note.innerText = myList[i].note;
+    // date.className = 'cardText';
     // date.innerText = 'due date: ' + myList[i].date;
     // expand button prop
     expandCard.className = 'collapsible';
