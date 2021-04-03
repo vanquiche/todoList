@@ -1,4 +1,4 @@
-
+const controller = (() => {
 // data cotainers
 let myList = [];
 let listFolder = [];
@@ -282,3 +282,4 @@ window.addEventListener('load', () => {
   populateContent();
   main.classList.add('tabActive');
 });
+})();
