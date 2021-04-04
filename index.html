@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Today</title>
+  <meta name='description' content=''>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' href='reset.css'>
+  <link rel='stylesheet' href='style.css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+</head>
+
+<body>
+  <div id='logoContainer'>
+    <h3 class='logoTitle'>today list</h3>
+  </div>
+  <div id='folderContainer' class='folderContainer'>
+    <div id='mainFolder' class='folderTab tabFont align'>today</div>
+    <div id='newFolder' class='material-icons md-42'>create_new_folder
+    </div>
+  </div>
+  <div id='content' class='cardContainer'>
+    <div type='button' id='newTask' class='material-icons md-42 newTaskBtn'>playlist_add_check</div>
+  </div>
+  <!-- new folder form -->
+  <form id='newFolderForm' class='form'>
+    <h3 class='formTitle'>New Folder</h3>
+    <input type='text' id='folderName' class='folderName span2' placeholder='Folder Name' maxlength='28'
+      required></input>
+    <input type='date' id='folderDate' class='date span2' required></input>
+    <input type='button' id='cancelFolder' class='formBtn' value='Cancel'></input>
+    <input type='submit' id='createFolder' class='formBtn' value='Create'></input>
+  </form>
+  <!-- new task form -->
+  <form id='form' class='formWrapper'>
+    <h3 class='formTitle'>New Task</h3>
+    <input type='text' id='formTitle' class='inputText span2' placeholder='Task' maxlength='30' required></input>
+    <textarea id='formNote' class='textarea span2' placeholder='Note' rows='5' columns='50'></textarea>
+    <input id='cancelForm' class='formBtn' type='button' value='Cancel'></input>
+  </form>
+  <footer id='footer'><i>design</i> | {code} - vanquiche</footer>
+  <script src='main.js'></script>
+</body>
+
+</html>
