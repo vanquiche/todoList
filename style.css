@@ -6,9 +6,12 @@ body {
   overflow-x: hidden;
   font-family: 'Open Sans', sans-serif;
 }
-
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-42 { font-size: 42px; }
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-42 {
+  font-size: 42px;
+}
 #footer {
   position: fixed;
   bottom: 5px;
@@ -19,8 +22,9 @@ body {
 #logoContainer {
   display: flex;
   max-width: 700px;
-  justify-content: start;
-  /* background-color: lightgreen; */
+  justify-content: flex-start;
+ /* background-color: lightgreen;
+  */
   margin: auto;
 }
 .logoTitle {
@@ -41,7 +45,7 @@ body {
 }
 .form {
   display: grid;
-  gap: 10px;
+  grid-gap: 10px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 1fr);
   width: 400px;
@@ -88,8 +92,8 @@ body {
 }
 .folderTab {
   display: flex;
-  align-items: end;
-  justify-content: start;
+  align-items: flex-end;
+  justify-content: flex-start;
   height: 45px;
   width: 130px;
   overflow: hidden;
@@ -99,7 +103,7 @@ body {
   margin-right: 3px;
   border-radius: 10px 10px 0 0;
   cursor: default;
-  word-wrap: none;
+  word-wrap: break-word;
   color: rgb(75, 75, 75);
   font-family: Raleway;
   font-weight: bold;
@@ -115,7 +119,7 @@ body {
   position: relative;
 }
 .align {
-  padding-left: 20px;
+  padding-left: 33px;
 }
 .closeout {
   position: absolute;
@@ -138,7 +142,6 @@ body {
   border-radius: 0 10px 10px 10px;
   padding-bottom: 15px;
 }
-
 .formWrapper {
   background-color: #9DD9D2;
   display: grid;
@@ -167,7 +170,6 @@ body {
   outline: none;
   font-size: 0.8em;
 }
-
 .textarea {
   resize: none;
   padding: 5px;
@@ -178,7 +180,6 @@ body {
   font-size: 0.8em;
   font-family: 'Open Sans', sans-serif;
 }
-
 .date {
   text-align: center;
   border: none;
@@ -192,20 +193,19 @@ body {
   cursor: pointer;
   color: darkslategrey;
 }
-
 .card {
   position: relative;
   padding: 3px 50px 25px 50px;
   overflow: hidden;
-  height: 35px;
+  height: 30px;
   margin: 0 20px 0 20px;
   word-wrap: break-word;
-  /* border-radius: 6px; */
+ /* border-radius: 6px;
+  */
   transition: max-height 0.5s ease;
   color: darkslategrey;
   cursor: default;
 }
-
 .card:nth-child(odd) {
   background-color: #ECE4B7;
 }
@@ -257,7 +257,7 @@ body {
   background: none;
   border: none;
   bottom: 0;
-  margin: 0px 0 0 0;
+  margin: 0 0 0 0;
   padding-top: 20px;
   padding-bottom: 0;
   cursor: pointer;
